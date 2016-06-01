@@ -31,4 +31,4 @@ var wolf = new breed({
 });
 
 // make this available to our other files
-module.exports = breed;
+module.exports = mongoose.model('Breed', breedSchema);
