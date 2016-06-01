@@ -1,6 +1,6 @@
-angular.module('RecipeServices', ['ngResource'])
-.factory('Recipe', ['$resource', function($resource) {
-  return $resource('/api/recipes/:id');
+angular.module('BreedServices', ['ngResource'])
+.factory('Breed', ['$resource', function($resource) {
+  return $resource('/api/breeds/:id');
 }])
 
 .factory('Auth', ['$window', function($window) {
