@@ -1,4 +1,4 @@
-var app = angular.module('RecipeApp', ['ui.router', 'ui.bootstrap', 'RecipeCtrls']);
+var app = angular.module('BreedApp', ['ui.router', 'ui.bootstrap', 'BreedCtrls']);
 
 app.config([
   '$stateProvider',
@@ -11,17 +11,17 @@ app.config([
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/views/recipes.html',
+    templateUrl: 'app/views/breed.html',
     controller: 'HomeCtrl'
   })
-  .state('newRecipe', {
-    url: '/recipes/new',
-    templateUrl: 'app/views/newRecipe.html',
+  .state('newBreeds', {
+    url: '/breed/new',
+    templateUrl: 'app/views/newBreeds.html',
     controller: 'NewCtrl'
   })
-  .state('recipeShow', {
-    url: '/recipes/:id',
-    templateUrl: 'app/views/showRecipe.html',
+  .state('showBreed', {
+    url: '/breed/:id',
+    templateUrl: 'app/views/showBreed.html',
     controller: 'ShowCtrl'
   })
   .state('signup', {
