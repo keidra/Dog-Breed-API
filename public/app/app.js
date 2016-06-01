@@ -1,4 +1,4 @@
-var app = angular.module('BreedApp', ['ui.router', 'BreedCtrls']);
+var app = angular.module('BreedApp', ['ui.router', 'ui.bootstrap', 'BreedCtrls']);
 
 app.config([
   '$stateProvider',
@@ -11,16 +11,16 @@ app.config([
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/views/breeds.html',
+    templateUrl: 'app/views/breed.html',
     controller: 'HomeCtrl'
   })
-  .state('newBreed', {
-    url: '/breeds/new',
+  .state('newBreeds', {
+    url: '/breed/new',
     templateUrl: 'app/views/newBreeds.html',
     controller: 'NewCtrl'
   })
-  .state('breedShow', {
-    url: '/breeds/:id',
+  .state('showBreed', {
+    url: '/breed/:id',
     templateUrl: 'app/views/showBreed.html',
     controller: 'ShowCtrl'
   })
@@ -40,4 +40,8 @@ app.config([
   });
 
   $locationProvider.html5Mode(true);
-}]);
+}])
+
+.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.interceptors.push('AuthInterceptor');
+}])
