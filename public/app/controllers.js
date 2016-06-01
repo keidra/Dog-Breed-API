@@ -1,73 +1,85 @@
-angular.module('BreedCtrls', ['BreedServices'])
+angular.module('RecipeCtrls', ['RecipeServices'])
+.controller('HomeCtrl', ['$scope', 'Recipe', function($scope, Recipe) {
+  $scope.recipes = [];
 
-.controller('HomeCtrl', ['$scope', 'Breed', function($scope, Breed) {
-  $scope.breed = [];
-
-  Breed.query(function success(data) {
-    $scope.breed = data;
+  Recipe.query(function success(data) {
+    $scope.recipes = data;
   }, function error(data) {
     console.log(data);
   });
 
-
-  $scope.deleteBreed = function(id, breedIdx) {
-    Breed.delete({id: id}, function success(data) {
-      $scope.breed.splice(breedIdx, 1);
+  $scope.deleteRecipe = function(id, recipesIdx) {
+    Recipe.delete({id: id}, function success(data) {
+      $scope.recipes.splice(recipesIdx, 1);
     }, function error(data) {
       console.log(data);
     });
   }
 }])
+.controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Recipe) {
+  $scope.recipe = {};
 
-.controller('ShowCtrl', ['$scope', '$stateParams', 'Breed', function($scope, $stateParams, Breed) {
-
-  $scope.breed = {};
-
-  Breed.get({id: $stateParams.id}, function success(data) {
-    $scope.breed = data;
+  Recipe.get({id: $stateParams.id}, function success(data) {
+    $scope.recipe = data;
   }, function error(data) {
     console.log(data);
   });
 }])
-.controller('NewCtrl', ['$scope', '$location', 'Breed', function($scope, $location, Breed) {
-  $scope.breed = {
-    name: '',
-    size: '',
-    lifespan: '',
-    training: '',
-    shedding: '',
-    energylevel: '',
-    image:''
+.controller('NewCtrl', ['$scope', '$location', 'Recipe', function($scope, $location, Recipe) {
+  $scope.recipe = {
+    title: '',
+    description: '',
+    image: ''
   };
 
-  $scope.createBreed = function() {
-    Recipe.save($scope.breed, function success(data) {
+  $scope.createRecipe = function() {
+    Recipe.save($scope.recipe, function success(data) {
       $location.path('/');
     }, function error(data) {
       console.log(data);
     });
   }
 }])
-.controller('NavCtrl', ['$scope', function($scope) {
+.controller('NavCtrl', ['$scope', 'Auth', '$state', 'Alerts', function($scope, Auth, $state, Alerts) {
+  $scope.Auth = Auth;
   $scope.logout = function() {
-    //to implement
+    Auth.removeToken();
+    Alerts.add('success', 'Logged out!');
+    $state.reload();
   }
 }])
-.controller('SignupCtrl', ['$scope', function($scope) {
+.controller('SignupCtrl', ['$scope', '$http', '$location', 'Alerts', function($scope, $http, $location, Alerts) {
   $scope.user = {
     email: '',
     password: ''
   };
   $scope.userSignup = function() {
-    //to implement
+    $http.post('/api/users', $scope.user).then(function success(res) {
+      Alerts.add('success', 'Signed up in!');
+      $location.path('/');
+    }, function error(res) {
+      Alerts.add('danger', 'Error. See console');
+      console.log(res);
+    });
   }
 }])
-.controller('LoginCtrl', ['$scope', function($scope) {
+.controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', 'Alerts', function($scope, $http, $location, Auth, Alerts) {
   $scope.user = {
     email: '',
     password: ''
   };
   $scope.userLogin = function() {
-    //to implement
+    $http.post('/api/auth', $scope.user).then(function success(res) {
+      Auth.saveToken(res.data.token);
+      Alerts.add('success', 'Logged in!');
+      console.log('Token:', res.data.token);
+      $location.path('/');
+    }, function error(res) {
+      Alerts.add('danger', 'Incorrect email/password');
+      console.log(res);
+    });
   }
+}])
+.controller('AlertCtrl', ['$scope', 'Alerts', function($scope, Alerts) {
+  $scope.Alerts = Alerts;
 }]);
