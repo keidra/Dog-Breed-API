@@ -1,6 +1,5 @@
-
 var express = require('express');
-var Airplane = require('../models/breed');
+var Breed = require('../models/breed');
 var router = express.Router();
 
 router.route('/')
@@ -10,12 +9,12 @@ router.route('/')
       res.send(breed);
     });
   })
-  // .post(function(req, res) {
-  //   Airplane.create(req.body, function(err, airplane) {
-  //     if (err) return res.status(500).send(err);
-  //     res.send(airplane);
-  //   });
-  // });
+  .post(function(req, res) {
+    Breed.create(req.body, function(err, breed) {
+      if (err) return res.status(500).send(err);
+      res.send(breed);
+    });
+  });
 
 router.route('/:id')
   .get(function(req, res) {
@@ -24,18 +23,18 @@ router.route('/:id')
       res.send(breed);
     });
   })
-  // .put(function(req, res) {
-  //   Airplane.findByIdAndUpdate(req.params.id, req.body, function(err) {
-  //     if (err) return res.status(500).send(err);
-  //     res.send({'message': 'success'});
-  //   });
-  // })
-  // .delete(function(req, res) {
-  //   Airplane.findByIdAndRemove(req.params.id, function(err) {
-  //     if (err) return res.status(500).send(err);
-  //     res.send({'message': 'success'});
-  //   });
-  // });
+  .put(function(req, res) {
+    Breed.findByIdAndUpdate(req.params.id, req.body, function(err) {
+      if (err) return res.status(500).send(err);
+      res.send({'message': 'success'});
+    });
+  })
+  .delete(function(req, res) {
+    Breed.findByIdAndRemove(req.params.id, function(err) {
+      if (err) return res.status(500).send(err);
+      res.send({'message': 'success'});
+    });
+  });
 
 module.exports = router;
 

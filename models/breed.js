@@ -15,8 +15,6 @@ breedSchema.methods.hiDog = function() {
 };
 
 
-var breed = mongoose.model('breed', breedSchema);
-
 // mongoose.connect('mongodb://localhost/breed');
 // var breed = require('./models/breed');
 
@@ -30,5 +28,14 @@ var wolf = new breed({
   energylevel: 5
 });
 
+var dachshund = new breed({
+	name: 'Dachshund',
+	size: 'small',
+	lifespan: 12,
+	training: 'Easy',
+	shedding: 3,
+	energylevel: 3
+})
+
 // make this available to our other files
-module.exports = mongoose.model('Breed', breedSchema);
+module.exports = mongoose.model('breed', breedSchema);
