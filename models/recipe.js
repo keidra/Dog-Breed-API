@@ -7,7 +7,8 @@ var BreedSchema = new mongoose.Schema({
   lifespan: Number,
   training: String,
   shedding: Number,
-  energylevel: Number
+  energylevel: Number,
+  image: String
 });
 
 module.exports = mongoose.model('Breed', BreedSchema);
