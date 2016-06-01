@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/keidra/GAhackathon#readme",
   "dependencies": {
+    "ejs": "^2.4.2",
     "express": "^4.13.4"
   }
 }
