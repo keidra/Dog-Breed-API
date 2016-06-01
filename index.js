@@ -10,10 +10,12 @@ app.set('view engine', 'ejs');
 //mongoose stuff
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/breed');
-var breed = require('./models/breed');
+var Breed = require('./models/breed');
+
+app.use('/api/breed', require('./controllers/breed'));
 
 //test, added wolf breed
-var wolf = new breed({
+var wolf = new Breed({
   name: 'wolf',
   size: 'large',
   lifespan: 10,
