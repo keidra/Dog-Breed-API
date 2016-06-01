@@ -2,16 +2,32 @@
 
 <form ng-submit="createRecipe()">
   <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" ng-model="recipe.title">
+    <label for="description">Name</label>
+    <textarea class="form-control" id="description" ng-model="breed.name"></textarea>
   </div>
   <div class="form-group">
-    <label for="description">Description</label>
-    <textarea class="form-control" id="description" ng-model="recipe.description"></textarea>
+    <label for="description">Size</label>
+    <textarea class="form-control" id="description" ng-model="breed.size"></textarea>
+  </div>
+   <div class="form-group">
+    <label for="description">Life Expectancy</label>
+    <textarea class="form-control" id="description" ng-model="breed.lifespan"></textarea>
+  </div>
+   <div class="form-group">
+    <label for="description">Training</label>
+    <textarea class="form-control" id="description" ng-model="breed.training"></textarea>
+  </div>
+   <div class="form-group">
+    <label for="description">Shedding</label>
+    <textarea class="form-control" id="description" ng-model="breed.shedding"></textarea>
+  </div>
+   <div class="form-group">
+    <label for="description">Energy Level</label>
+    <textarea class="form-control" id="description" ng-model="breed.energylevel"></textarea>
   </div>
   <div class="form-group">
     <label for="image">Image Link</label>
-    <input type="url" class="form-control" id="image" placeholder="" ng-model="recipe.image">
+    <input type="url" class="form-control" id="image" placeholder="" ng-model="breed.image">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

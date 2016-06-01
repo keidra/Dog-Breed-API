@@ -1,32 +1,32 @@
-angular.module('RecipeCtrls', ['RecipeServices'])
+angular.module('BreedCtrls', ['BreedServices'])
 .controller('HomeCtrl', ['$scope', 'Recipe', function($scope, Recipe) {
-  $scope.recipes = [];
+  $scope.breeds = [];
 
-  Recipe.query(function success(data) {
-    $scope.recipes = data;
+  Breed.query(function success(data) {
+    $scope.breeds = data;
   }, function error(data) {
     console.log(data);
   });
 
-  $scope.deleteRecipe = function(id, recipesIdx) {
+  $scope.deleteBreed = function(id, recipesIdx) {
     Recipe.delete({id: id}, function success(data) {
-      $scope.recipes.splice(recipesIdx, 1);
+      $scope.breeds.splice(breedsIdx, 1);
     }, function error(data) {
       console.log(data);
     });
   }
 }])
-.controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Recipe) {
-  $scope.recipe = {};
+.controller('ShowCtrl', ['$scope', '$stateParams', 'Breed', function($scope, $stateParams, Recipe) {
+  $scope.breed = {};
 
-  Recipe.get({id: $stateParams.id}, function success(data) {
-    $scope.recipe = data;
+  Breed.get({id: $stateParams.id}, function success(data) {
+    $scope.breed = data;
   }, function error(data) {
     console.log(data);
   });
 }])
-.controller('NewCtrl', ['$scope', '$location', 'Recipe', function($scope, $location, Recipe) {
-  $scope.recipe = {
+.controller('NewCtrl', ['$scope', '$location', 'Breed', function($scope, $location, Breed) {
+  $scope.breed = {
     title: '',
     description: '',
     image: ''
