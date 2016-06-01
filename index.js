@@ -12,16 +12,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/breed');
 var breed = require('./models/breed');
 
-//test, added wolf breed
-var wolf = new breed({
-  name: 'wolf',
-  size: 'large',
-  lifespan: 10,
-  training: 'Hard',
-  shedding: 5,
-  energylevel: 5
-});
-
 //pulls from database and returns with data
 app.get('/', function(req, res) {
   res.send(wolf.hiDog());
