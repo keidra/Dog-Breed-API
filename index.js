@@ -9,7 +9,7 @@ var secret = "mysupersecretpassword";
 
 var mongoose = require('mongoose');
 var User = require('./models/user');
-mongoose.connect('mongodb://localhost/recipes');
+mongoose.connect('mongodb://localhost/breeds');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -25,7 +25,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api/recipes', require('./controllers/recipes'));
+app.use('/api/breeds', require('./controllers/breeds'));
 app.use('/api/users', require('./controllers/users'));
 
 app.post('/api/auth', function(req, res) {
