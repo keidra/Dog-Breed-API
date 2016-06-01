@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //set up schema
-var breedSchema = new mongoose.Schema({
+var BreedSchema = new mongoose.Schema({
   name: String,
   size: String,
   lifespan: Number,
@@ -10,7 +10,7 @@ var breedSchema = new mongoose.Schema({
   energylevel: Number
 });
 
-breedSchema.methods.hiDog = function() {
+BreedSchema.methods.hiDog = function() {
   return "Hi " + this.name ;
 };
 
@@ -28,14 +28,14 @@ var wolf = new breed({
   energylevel: 5
 });
 
-var dachshund = new breed({
-	name: 'Dachshund',
-	size: 'small',
-	lifespan: 12,
-	training: 'Easy',
-	shedding: 3,
-	energylevel: 3
-})
+// var dachshund = new breed({
+// 	name: 'Dachshund',
+// 	size: 'small',
+// 	lifespan: 12,
+// 	training: 'Easy',
+// 	shedding: 3,
+// 	energylevel: 3
+// })
 
 // make this available to our other files
-module.exports = mongoose.model('breed', breedSchema);
+module.exports = mongoose.model('Breed', BreedSchema);
