@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/api/recipes', expressJWT({secret: secret}));
-// app.use('/api/users', expressJWT({secret: secret})
-// .unless({path: ['/api/users'], method: 'post'}));
+app.use('/api/breed', expressJWT({secret: secret}));
+app.use('/api/users', expressJWT({secret: secret})
+.unless({path: ['/api/users'], method: 'post'}));
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
@@ -25,7 +25,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api/breeds', require('./controllers/breeds'));
+app.use('/api/breed', require('./controllers/breed'));
 app.use('/api/users', require('./controllers/users'));
 
 app.post('/api/auth', function(req, res) {

@@ -1,39 +1,40 @@
 var express = require('express');
-var Recipe = require('../models/recipe');
+var Breed = require('../models/breed');
 var router = express.Router();
 
 router.route('/')
   .get(function(req, res) {
-    Recipe.find(function(err, recipes) {
+    Breed.find(function(err, breed) {
       if (err) return res.status(500).send(err);
-      res.send(recipes);
+      res.send(breed);
     });
   })
   .post(function(req, res) {
-    Recipe.create(req.body, function(err, recipe) {
+    Breed.create(req.body, function(err, breed) {
       if (err) return res.status(500).send(err);
-      res.send(recipe);
+      res.send(breed);
     });
   });
 
 router.route('/:id')
   .get(function(req, res) {
-    Recipe.findById(req.params.id, function(err, recipe) {
+    Breed.findById(req.params.id, function(err, breed) {
       if (err) return res.status(500).send(err);
-      res.send(recipe);
+      res.send(breed);
     });
   })
   .put(function(req, res) {
-    Recipe.findByIdAndUpdate(req.params.id, req.body, function(err) {
+    Breed.findByIdAndUpdate(req.params.id, req.body, function(err) {
       if (err) return res.status(500).send(err);
       res.send({'message': 'success'});
     });
   })
   .delete(function(req, res) {
-    Recipe.findByIdAndRemove(req.params.id, function(err) {
+    Breed.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send(err);
       res.send({'message': 'success'});
     });
   });
 
 module.exports = router;
+
