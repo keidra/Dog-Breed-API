@@ -30,7 +30,7 @@ angular.module('BreedCtrls', ['BreedServices'])
     name: '',
     size: '',
     lifespan: '', 
-    training:: '', 
+    training: '', 
     shedding: '',
     energylevel: ''
   };
