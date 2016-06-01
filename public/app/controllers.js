@@ -1,39 +1,43 @@
-angular.module('RecipeCtrls', ['RecipeServices'])
-.controller('HomeCtrl', ['$scope', 'Recipe', function($scope, Recipe) {
-  $scope.recipes = [];
+angular.module('BreedCtrls', ['BreedServices'])
+.controller('HomeCtrl', ['$scope', 'Breed', function($scope, Breed) {
+  $scope.breed = [];
 
-  Recipe.query(function success(data) {
-    $scope.recipes = data;
+  Breed.query(function success(data) {
+    $scope.breed = data;
   }, function error(data) {
     console.log(data);
   });
 
-  $scope.deleteRecipe = function(id, recipesIdx) {
-    Recipe.delete({id: id}, function success(data) {
-      $scope.recipes.splice(recipesIdx, 1);
+  $scope.deleteBreed = function(id, breedIdx) {
+    Breed.delete({id: id}, function success(data) {
+      $scope.breed.splice(breedIdx, 1);
     }, function error(data) {
       console.log(data);
     });
   }
 }])
-.controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Recipe) {
-  $scope.recipe = {};
+.controller('ShowCtrl', ['$scope', '$stateParams', 'Breed', function($scope, $stateParams, Breed) {
+  $scope.breed = {};
 
-  Recipe.get({id: $stateParams.id}, function success(data) {
-    $scope.recipe = data;
+  Breed.get({id: $stateParams.id}, function success(data) {
+    $scope.breed = data;
   }, function error(data) {
     console.log(data);
   });
 }])
-.controller('NewCtrl', ['$scope', '$location', 'Recipe', function($scope, $location, Recipe) {
-  $scope.recipe = {
-    title: '',
-    description: '',
-    image: ''
+.controller('NewCtrl', ['$scope', '$location', 'Breed', function($scope, $location, Breed) {
+  $scope.breed = {
+    name: '',
+    size: '',
+    lifespan: '',
+    training: '',
+    shedding: '',
+    energylevel: '',
+    image:''
   };
 
-  $scope.createRecipe = function() {
-    Recipe.save($scope.recipe, function success(data) {
+  $scope.createBreed = function() {
+    Recipe.save($scope.breed, function success(data) {
       $location.path('/');
     }, function error(data) {
       console.log(data);
