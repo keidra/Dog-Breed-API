@@ -14,6 +14,7 @@ var Breed = require('./models/breed');
 
 app.use('/api/breed', require('./controllers/breed'));
 
+
 //test, added wolf breed
 var wolf = new Breed({
   name: 'wolf',
@@ -23,6 +24,7 @@ var wolf = new Breed({
   shedding: 5,
   energylevel: 5
 });
+
 
 //pulls from database and returns with data
 app.get('/', function(req, res) {
