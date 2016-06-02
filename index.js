@@ -5,8 +5,8 @@ var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var app = express();
 
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/Breed');
-// app.use(express.static(__dirname + '/build'));
+mongoose.connect(process.env.MONGOLAB_PINK_URI || 'mongodb://localhost/Breed');
+app.use(express.static(__dirname + '/build'));
 
 var secret = "mysupersecretpassword";
 
@@ -47,4 +47,4 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
