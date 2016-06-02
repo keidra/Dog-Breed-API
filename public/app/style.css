@@ -26,7 +26,7 @@ li {
   text-align: center;
   list-style-type: none;
   margin-left: -30px;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 body > div.container > div:nth-child(1) > nav > div.navbar-header > a {
@@ -43,7 +43,7 @@ body > div.container > div:nth-child(2) > div.well.ng-scope {
   margin: 0 auto;
   width: 600px;
   margin-top: 50px;
-  margin-bottom: 100px
+  margin-bottom: 100px;
 }
 
 body > div.container > div:nth-child(1) > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li:nth-child(3) > a {
@@ -53,7 +53,7 @@ body > div.container > div:nth-child(1) > nav > div.collapse.navbar-collapse.nav
 body > div.container > div:nth-child(2) > a {
   margin-top: -230px;
   margin-right: 230px;
-  float: right
+  float: right;
 }
 
 .well {
@@ -94,6 +94,7 @@ body > div.container > div:nth-child(1) > nav > div.navbar-header > img {
     color: black;
     background-color: #337ab7;
     border-color: #2e6da4;
+    margin-top: -30px;
     
 }
 
@@ -103,6 +104,7 @@ body > div.container > div:nth-child(1) > nav > div.navbar-header > img {
     border-color: #4cae4c;
     margin-right: 275px;
 }
+
 
 textarea {
     resize: none;
