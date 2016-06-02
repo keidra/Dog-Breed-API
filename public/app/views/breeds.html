@@ -1,12 +1,8 @@
 <h1>Dog Breeds</h1>
 
 
+<header><a href="/breeds/new" class="btn btn-success">Add New Dog</a></header>
 
-<div class="form-group">
- <!--  <label for="search">Search</label>
-  <input type="text" class="form-control" id="search" ng-model="search"> -->
-  <a href="/breeds/new" class="btn btn-success">Add New Dog</a>
-</div>
 
 <div class="well" ng-repeat="breed in breeds | filter:{title:search} track by breed._id">
   <h1>{{breed.name}}</h1>
