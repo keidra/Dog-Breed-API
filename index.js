@@ -5,7 +5,7 @@ var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var app = express();
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/GAhackathon');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/Breed');
 app.use(express.static(__dirname + '/build'));
 
 var secret = "mysupersecretpassword";
