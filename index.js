@@ -5,9 +5,6 @@ var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var app = express();
 
-mongoose.connect(process.env.MONGOLAB_PINK_URI || 'mongodb://localhost/Breed');
-app.use(express.static(__dirname + '/build'));
-
 var secret = "mysupersecretpassword";
 
 var mongoose = require('mongoose');
