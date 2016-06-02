@@ -10,5 +10,4 @@
 <div class="well" ng-repeat="breed in breeds | filter:{title:search} track by breed._id">
   <h1>{{breed.name}}</h1>
   <a ng-href="/breeds/{{breed._id}}">Permalink</a>
-  <a ng-click="deleteBreed(breed._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
 </div>

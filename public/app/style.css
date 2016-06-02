@@ -1,0 +1,20 @@
+body {
+  font-family: 'Indie Flower';
+}
+
+h1{
+  text-align: center;
+  margin: 0 auto;
+  font-size: 4.1em;
+}
+
+li {
+  text-align: center;
+  list-style-type: none;
+  margin-left: -30px;
+  font-size: 3em;
+}
+
+body > div.container > div:nth-child(1) > nav > div.navbar-header > a {
+  font-size: 2em;
+}

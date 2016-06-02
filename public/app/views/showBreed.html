@@ -1,10 +1,18 @@
 <h1>{{breed.name}}</h1>
 
 <div class="well">
-  <p>
 
-  </p>
-  <img class="img-responsive" ng-src="{{breed.image}}">
+
+  <ul>
+  <li><img class="img-responsive" ng-src="{{breed.image}}"></li>
+  <li><strong>Size:</strong> {{breed.size}}</li>
+  <li><strong>Lifespan:</strong> {{breed.lifespan}}</li>
+  <li><strong>Training:</strong> {{breed.training}}</li>
+  <li><strong>Shedding:</strong> {{breed.shedding}}</li>
+  <li><strong>Energy Level:</strong> {{breed.energylevel}}</li>
+  </ul>
+
+  
 </div>
 
 <a href="/" class="btn btn-primary">&larr; Back</a>
