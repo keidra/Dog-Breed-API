@@ -3,12 +3,13 @@
 
 
 <div class="form-group">
-  <label for="search">Search</label>
-  <input type="text" class="form-control" id="search" ng-model="search">
+ <!--  <label for="search">Search</label>
+  <input type="text" class="form-control" id="search" ng-model="search"> -->
+  <a href="/breeds/new" class="btn btn-success">Add New Dog</a>
 </div>
 
 <div class="well" ng-repeat="breed in breeds | filter:{title:search} track by breed._id">
   <h1>{{breed.name}}</h1>
   <a ng-href="/breeds/{{breed._id}}">Learn more!</a>
 </div>
-<a href="/breeds/new" class="btn btn-success">New Dog</a>
+
