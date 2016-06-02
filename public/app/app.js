@@ -1,4 +1,4 @@
-var app = angular.module('BreedApp', ['ui.router', 'ui.bootstrap', 'BreedCtrls']);
+var app = angular.module('BreedApp', ['ui.router', 'BreedCtrls']);
 
 app.config([
   '$stateProvider',
