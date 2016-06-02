@@ -25,7 +25,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-app.use('/api/breed', require('./controllers/breed'));
+app.use('/api/breed', require('./controllers/breeds'));
 app.use('/api/users', require('./controllers/users'));
 
 app.post('/api/auth', function(req, res) {
