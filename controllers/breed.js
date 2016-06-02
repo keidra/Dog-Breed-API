@@ -4,9 +4,9 @@ var router = express.Router();
 
 router.route('/')
   .get(function(req, res) {
-    Breed.find(function(err, breed) {
+    Breed.find(function(err, breeds) {
       if (err) return res.status(500).send(err);
-      res.send(breed);
+      res.send(breeds);
     });
   })
   .post(function(req, res) {

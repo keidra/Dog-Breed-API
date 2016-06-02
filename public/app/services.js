@@ -1,6 +1,6 @@
 angular.module('BreedServices', ['ngResource'])
 .factory('Breed', ['$resource', function($resource) {
-  return $resource('/api/breeds/:id');
+  return $resource('/api/breed/:id');
 }])
 
 .factory('Auth', ['$window', function($window) {
