@@ -2,24 +2,24 @@ angular.module('BreedCtrls', ['BreedServices'])
 .controller('HomeCtrl', ['$scope', 'Breed', function($scope, Breed) {
   $scope.breeds = [];
 
-  Recipe.query(function success(data) {
+  Breed.query(function success(data) {
     $scope.breeds = data;
   }, function error(data) {
     console.log(data);
   });
 
   $scope.deleteBreed = function(id, breedsIdx) {
-    Recipe.delete({id: id}, function success(data) {
+    Breed.delete({id: id}, function success(data) {
       $scope.breeds.splice(breedsIdx, 1);
     }, function error(data) {
       console.log(data);
     });
   }
 }])
-.controller('ShowCtrl', ['$scope', '$stateParams', 'Recipe', function($scope, $stateParams, Breed) {
+.controller('ShowCtrl', ['$scope', '$stateParams', 'Breed', function($scope, $stateParams, Breed) {
   $scope.breed = {};
 
-  Recipe.get({id: $stateParams.id}, function success(data) {
+  Breed.get({id: $stateParams.id}, function success(data) {
     $scope.breed = data;
   }, function error(data) {
     console.log(data);
@@ -36,7 +36,7 @@ angular.module('BreedCtrls', ['BreedServices'])
   };
 
   $scope.createBreed = function() {
-    Recipe.save($scope.breed, function success(data) {
+    Breed.save($scope.breed, function success(data) {
       $location.path('/');
     }, function error(data) {
       console.log(data);
