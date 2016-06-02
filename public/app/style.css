@@ -1,5 +1,18 @@
 body {
   font-family: 'Indie Flower';
+  background-image: url("land.png");
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  height: 800px;
+  
+}
+
+a {
+  color: black;
 }
 
 h1{
@@ -17,4 +30,61 @@ li {
 
 body > div.container > div:nth-child(1) > nav > div.navbar-header > a {
   font-size: 2em;
+  color: black;
+}
+
+body > div.container > div:nth-child(2) > div.well.ng-scope > a {
+  font-size: 1.5em;
+  float: right;
+  color: black;
+}
+
+body > div.container > div:nth-child(2) > div.well.ng-scope {
+  margin: 0 auto;
+  width: 600px;
+  margin-top: 50px;
+}
+
+body > div.container > div:nth-child(1) > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li:nth-child(3) > a {
+  color: black;
+}
+
+body > div.container > div:nth-child(2) > a {
+  margin-top: -230px;
+  margin-right: 230px;
+  float: right
+}
+
+.well {
+  padding: 40px;
+}
+
+label{
+  font-size: 1.5em;
+  margin-left: 230px;
+}
+
+.form-control {
+  width: 60%;
+}
+
+.form-group {
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+body > div.container > div:nth-child(2) > form {
+  margin: 0 auto;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+body > div.container > div:nth-child(1) > nav > div.navbar-header > img {
+  margin-left: 300px;
+  margin-top: 10px;
 }

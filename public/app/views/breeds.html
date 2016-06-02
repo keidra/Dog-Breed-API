@@ -1,6 +1,6 @@
-<h1>Breeds</h1>
+<h1>Dog Breeds</h1>
 
-<a href="/breeds/new" class="btn btn-success">New Dog</a>
+
 
 <div class="form-group">
   <label for="search">Search</label>
@@ -9,5 +9,6 @@
 
 <div class="well" ng-repeat="breed in breeds | filter:{title:search} track by breed._id">
   <h1>{{breed.name}}</h1>
-  <a ng-href="/breeds/{{breed._id}}">Permalink</a>
+  <a ng-href="/breeds/{{breed._id}}">Learn more!</a>
 </div>
+<a href="/breeds/new" class="btn btn-success">New Dog</a>
