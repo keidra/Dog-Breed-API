@@ -10,7 +10,7 @@ angular.module('BreedCtrls', ['BreedServices'])
 
   $scope.deleteBreed = function(id, breedIdx) {
     Breed.delete({id: id}, function success(data) {
-      $scope.breed.splice(breedsIdx, 1);
+      $scope.breed.splice(breedIdx, 1);
     }, function error(data) {
       console.log(data);
     });
