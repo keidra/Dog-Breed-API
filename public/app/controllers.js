@@ -8,9 +8,9 @@ angular.module('BreedCtrls', ['BreedServices'])
     console.log(data);
   });
 
-  $scope.deleteBreed = function(id, breedsIdx) {
+  $scope.deleteBreed = function(id, breedIdx) {
     Breed.delete({id: id}, function success(data) {
-      $scope.breeds.splice(breedsIdx, 1);
+      $scope.breed.splice(breedsIdx, 1);
     }, function error(data) {
       console.log(data);
     });
@@ -32,7 +32,8 @@ angular.module('BreedCtrls', ['BreedServices'])
     lifespan: '', 
     training: '', 
     shedding: '',
-    energylevel: ''
+    energylevel: '', 
+    image: ''
   };
 
   $scope.createBreed = function() {

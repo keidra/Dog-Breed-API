@@ -11,16 +11,16 @@ app.config([
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/views/breed.html',
+    templateUrl: 'app/views/breeds.html',
     controller: 'HomeCtrl'
   })
   .state('newBreeds', {
-    url: '/breed/new',
+    url: '/breeds/new',
     templateUrl: 'app/views/newBreeds.html',
     controller: 'NewCtrl'
   })
-  .state('showBreed', {
-    url: '/breed/:id',
+  .state('breedShow', {
+    url: '/breeds/:id',
     templateUrl: 'app/views/showBreed.html',
     controller: 'ShowCtrl'
   })
